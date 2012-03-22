@@ -27,6 +27,6 @@ Finally, you can search for similar images:
 
 <pre>
 irb> RestClient.post("http://localhost:8984/search", :file => File.new("reference.jpg"), :q => "keywords", :start => 0, :limit => 2)
-=> "<response num='291'>\n<result score='0.46990407' id='1'>test.jpg</result>...</response>\n"
+=> "&lt;response num='291'&gt;\n&lt;result score='0.46990407' id='1'&gt;test.jpg&lt;/result&gt;...&lt;/response&gt;\n"
 </pre>
 
