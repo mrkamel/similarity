@@ -25,12 +25,11 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
 public class FilteredIndexReader extends IndexReader {
-	private static IndexReader reader;
+	private IndexReader reader;
 	private ScoreDoc[] docs;
 	
 	public FilteredIndexReader(String q, int maxDocs) throws CorruptIndexException, IOException, ParseException {
-		if(reader == null)
-			reader = IndexReader.open(FSDirectory.open(new File("data")), true);
+		reader = IndexReader.open(FSDirectory.open(new File("data")), true);
 		
 		QueryParser parser = new QueryParser(Version.LUCENE_34, "text", new StandardAnalyzer(Version.LUCENE_34));
 		Searcher searcher = new IndexSearcher(FSDirectory.open(new File("data")));
