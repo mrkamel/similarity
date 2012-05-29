@@ -2,21 +2,14 @@
 import net.semanticmetadata.lire.DocumentBuilder;
 import net.semanticmetadata.lire.DocumentBuilderFactory;
 import java.io.InputStream;
-import java.io.FileInputStream;
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.analysis.SimpleAnalyzer;
 import org.apache.lucene.analysis.WhitespaceAnalyzer;
-
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 
 public class CombinedIndexer {
 	private static IndexWriter writer = null;
