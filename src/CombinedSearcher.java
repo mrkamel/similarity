@@ -20,22 +20,12 @@ import org.apache.lucene.store.FSDirectory;
 
 public class CombinedSearcher {
     public ImageSearchHits search(InputStream reference, String q) throws IOException, ParseException {
-    	FilteredIndexReader filter = new FilteredIndexReader(q, 10);
+    	FilteredIndexReader filter = new FilteredIndexReader(q, 1000000);
     	
-    	ImageSearcher searcher = ImageSearcherFactory.createColorLayoutImageSearcher(10);
+    	ImageSearcher searcher = ImageSearcherFactory.createColorLayoutImageSearcher(1000000);
     	
     	BufferedImage image = ImageIO.read(reference);
 
     	return searcher.search(image, filter);
-    }
-    
-    public static void main(String[] args) {
-    	try {
-    		ImageSearchHits hits = new CombinedSearcher().search(new FileInputStream("/home/hkf/lay-p8910001.jpg"), "blubb");
-    		
-    		System.out.println(hits.doc(0));
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    	}
     }
 }

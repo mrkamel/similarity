@@ -13,6 +13,8 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.analysis.SimpleAnalyzer;
+import org.apache.lucene.analysis.WhitespaceAnalyzer;
+
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
@@ -28,7 +30,7 @@ public class CombinedIndexer {
     		CombinedIndexer.builder = DocumentBuilderFactory.getColorLayoutBuilder();
      
     	if(CombinedIndexer.writer == null)
-    		CombinedIndexer.writer = new IndexWriter(FSDirectory.open(new File("data")), new SimpleAnalyzer(), !(new File("data").exists()), IndexWriter.MaxFieldLength.UNLIMITED);
+    		CombinedIndexer.writer = new IndexWriter(FSDirectory.open(new File("data")), new WhitespaceAnalyzer(), !(new File("data").exists()), IndexWriter.MaxFieldLength.UNLIMITED);
 
         Document doc = CombinedIndexer.builder.createDocument(stream, identifier);
         

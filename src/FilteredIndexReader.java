@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
 
+import org.apache.lucene.analysis.WhitespaceAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.FieldSelector;
@@ -31,7 +32,7 @@ public class FilteredIndexReader extends IndexReader {
 	public FilteredIndexReader(String q, int maxDocs) throws CorruptIndexException, IOException, ParseException {
 		reader = IndexReader.open(FSDirectory.open(new File("data")), true);
 		
-		QueryParser parser = new QueryParser(Version.LUCENE_34, "text", new StandardAnalyzer(Version.LUCENE_34));
+		QueryParser parser = new QueryParser(Version.LUCENE_34, "text", new WhitespaceAnalyzer());
 		Searcher searcher = new IndexSearcher(FSDirectory.open(new File("data")));
 		TopScoreDocCollector collector = TopScoreDocCollector.create(maxDocs, true);
 		searcher.search(parser.parse(q), collector);
