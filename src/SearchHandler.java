@@ -34,7 +34,11 @@ public class SearchHandler extends HttpServlet {
 					String id = hits.doc(i).getField(CombinedIndexer.FIELD_ID).stringValue();
 					String identifier = hits.doc(i).getField(DocumentBuilder.FIELD_NAME_IDENTIFIER).stringValue();
 					
-					writer.println("<result score='" + hits.score(i) + "' id='" + id + "'>" + identifier + "</result>");
+					writer.println("<result>");
+						writer.println("<id>" + id + "</id>");
+						writer.println("<identifier>" + identifier + "</identifier>");
+						writer.println("<score>" + hits.score(i) + "</score>");
+					writer.println("</result>");
 				}
 			}
 			
