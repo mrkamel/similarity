@@ -20,13 +20,13 @@ gem install rest-client
 $ irb
 irb> require "rubygems"
 irb> require "rest-client"
-irb> RestClient.post("http://localhost:8984/uploads", :file => File.new("test.jpg"), :text => "keywords", :id => 1) 
+irb> RestClient.post("http://localhost:8984/uploads", :file => File.new("test.jpg"), :identifier => "test.jpg", :text => "keywords", :id => 1) 
 </pre>
 
 Finally, you can search for similar images:
 
 <pre>
 irb> RestClient.post("http://localhost:8984/search", :file => File.new("reference.jpg"), :q => "keywords", :start => 0, :limit => 2)
-=> "&lt;response num='291'&gt;\n&lt;result score='0.46990407' id='1'&gt;test.jpg&lt;/result&gt;...&lt;/response&gt;\n"
+=> "&lt;response num='291'&gt;\n&lt;result&gt;&lt;id&gt;1&lt;/id&gt;&lt;identifier&gt;test.jpg&lt;/identifier&gt;&lt;score&gt;0.46990407&gt;/score&gt;&lt;/result&gt;...&lt;/response&gt;\n"
 </pre>
 

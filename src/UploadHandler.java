@@ -12,7 +12,7 @@ public class UploadHandler extends HttpServlet {
 		
 		FileInputStream stream = new FileInputStream(request.getAttribute("file").toString());
   
-		new CombinedIndexer().index(request.getParameter("file"), stream, request.getParameter("id"), request.getParameter("text"));
+		new CombinedIndexer().index(request.getParameter("identifier"), stream, request.getParameter("id"), request.getParameter("text"));
   
 		response.setStatus(HttpServletResponse.SC_OK);
 	}
