@@ -36,7 +36,5 @@ public class CombinedIndexer {
         
         writer.addDocument(doc);
         writer.commit();
-        
-        System.out.println("Image indexed. " + writer.numDocs() + " images currently indexed.");
     }
 }
