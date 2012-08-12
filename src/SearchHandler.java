@@ -80,8 +80,8 @@ public class SearchHandler extends HttpServlet {
 			
 			StringWriter string_writer = new StringWriter();
 			StreamResult stream_result = new StreamResult(string_writer);
-	        DOMSource source = new DOMSource(document);
-	        transformer.transform(source, stream_result);
+			DOMSource source = new DOMSource(document);
+			transformer.transform(source, stream_result);
 	            
 			writer.println(string_writer.toString());
 		} catch(ParseException e) {
