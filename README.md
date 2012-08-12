@@ -54,7 +54,7 @@ irb> RestClient.post("http://localhost:8984/uploads",
 Finally, you can search for similar images:
 
 <pre>
-irb> puts RestClient.post("http://localhost:8984/search", :file => File.new("reference.jpg"),
+irb> puts RestClient.post("http://localhost:8984/search", :file => File.new("/path/to/reference.jpg"),
   :q => "keyword1", :start => 0, :limit => 10)
 &lt;response num="2"&gt;
   &lt;result&gt;
