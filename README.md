@@ -60,7 +60,7 @@ irb> puts RestClient.post("http://localhost:8984/search", :file => File.new("ref
   &lt;result&gt;
     &lt;id&gt;1&lt;/id&gt;
     &lt;identifier&gt;/path/to/file.jpg&lt;/identifier&gt;
-    &lt;text&gt;keyword1 keyword2f&lt;/text&gt;
+    &lt;text&gt;keyword1 keyword2&lt;/text&gt;
     &lt;score&gt;1.0&lt;/score&gt;
   &lt;/result&gt;
   ...
