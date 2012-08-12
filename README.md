@@ -47,7 +47,7 @@ $ irb
 irb> require "rubygems"
 irb> require "rest-client"
 irb> RestClient.post("http://localhost:8984/uploads",
-  :file => File.new("/path/to/file.jpg"), :text => "keyword1 keyword2 ...", :id => 1) 
+  :file => File.new("/path/to/file.jpg"), :text => "keyword1 keyword2", :id => 1) 
 ...
 </pre>
 
@@ -56,7 +56,7 @@ Finally, you can search for similar images:
 <pre>
 irb> puts RestClient.post("http://localhost:8984/search", :file => File.new("reference.jpg"),
   :q => "keyword1", :start => 0, :limit => 10)
-&lt;response num="1"&gt;
+&lt;response num="2"&gt;
   &lt;result&gt;
     &lt;id&gt;1&lt;/id&gt;
     &lt;identifier&gt;/path/to/file.jpg&lt;/identifier&gt;
