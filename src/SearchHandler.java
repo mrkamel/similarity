@@ -94,6 +94,8 @@ public class SearchHandler extends HttpServlet {
 			e.printStackTrace();
 		} catch(ParserConfigurationException e) {
 			e.printStackTrace();
-		}
+		} catch(Exception e) {
+      e.printStackTrace();
+    }
 	}
 }
